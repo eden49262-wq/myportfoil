@@ -1,69 +1,121 @@
-import Image from "next/image";
+import {
+  ArrowDown,
+  ArrowRight,
+  ArrowUpRight,
+  BriefcaseBusiness,
+  Code2,
+  MoveUpRight,
+} from "lucide-react";
+import { ContactForm } from "@/components/contact-form";
+import { Portrait } from "@/components/portrait";
+import {
+  AboutAndStack,
+  ExperienceSection,
+  ProjectSection,
+  SectionHeading,
+  StandardsSection,
+} from "@/components/portfolio-sections";
+import { SiteHeader } from "@/components/site-header";
+import { socialLinks } from "@/components/portfolio-data";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
+    <>
+      <SiteHeader />
+      <main>
+        <section className="hero page-shell" id="home">
+          <div className="hero-glow" />
+          <div className="hero-copy">
+            <div className="availability-pill">
+              <span className="availability-dot" />
+              Available for Software Engineering Roles
+            </div>
+            <p className="hero-pretitle mono">SOFTWARE ENGINEER &amp; FULL-STACK WEB DEVELOPER</p>
+            <h1>
+              I build software
+              <br />
+              that <span>moves you forward.</span>
+            </h1>
+            <p className="hero-summary">
+              I&apos;m a Software Engineer &amp; Full-Stack Web Developer focused
+              on turning complex ideas into intuitive, reliable products. I love
+              building thoughtful web experiences where solid engineering and
+              human-centered design work as one.
+            </p>
+            <div className="hero-actions">
+              <a className="button button-primary" href="#projects">
+                View Engineering Work <ArrowRight size={15} />
+              </a>
+              <a className="button button-secondary" href="#contact">
+                Get in Touch <MoveUpRight size={14} />
+              </a>
+            </div>
+            <div className="hero-footnote">
+              <span className="mono">FULL-STACK DEVELOPMENT</span>
+              <span className="hero-footnote-divider" />
+              <span className="mono">THOUGHTFUL BY DESIGN</span>
+            </div>
+          </div>
+          <div className="hero-portrait">
+            <span className="portrait-coordinate mono">ENGINEERING / FULL-STACK</span>
+            <Portrait />
+            <span className="portrait-index mono">ENGINEER / BUILDER / LIFELONG LEARNER</span>
+          </div>
+          <a className="scroll-cue mono" href="#about">
+            SCROLL TO EXPLORE <ArrowDown size={13} />
           </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+        </section>
+
+        <div className="page-shell">
+          <div className="principle-strip" aria-label="Engineering principles">
+            <span><span className="principle-dot" /> Built for people</span>
+            <span><span className="principle-dot" /> Designed to scale</span>
+            <span><span className="principle-dot" /> Crafted with care</span>
+            <span className="principle-index mono">01 — 04</span>
+          </div>
+
+          <AboutAndStack />
+          <ProjectSection />
+          <ExperienceSection />
+          <StandardsSection />
+
+          <section className="section contact-section" id="contact">
+            <div className="contact-heading">
+              <SectionHeading
+                label="Let’s build something"
+                title="Have a good problem? I’m listening."
+                description="I’m open to software engineering roles, collaborations, and conversations about building useful things."
+              />
+              <span className="contact-orbit" aria-hidden="true" />
+            </div>
+            <ContactForm />
+          </section>
         </div>
       </main>
-    </div>
+
+      <footer className="site-footer">
+        <div className="page-shell footer-inner">
+          <a href="#home" className="footer-brand">
+            <span className="brand-mark">EA</span>
+            <span>Designed &amp; built by Eden Abebaw</span>
+          </a>
+          <div className="footer-socials" aria-label="Social links">
+            {socialLinks.map((social) => (
+              <a
+                href={social.href}
+                key={social.label}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={social.label}
+              >
+                {social.label === "GitHub" ? <Code2 size={16} /> : social.label === "LinkedIn" ? <BriefcaseBusiness size={16} /> : <ArrowUpRight size={16} />}
+                <span>{social.label}</span>
+              </a>
+            ))}
+          </div>
+          <span className="footer-copyright mono">© 2026 — BUILT WITH INTENTION</span>
+        </div>
+      </footer>
+    </>
   );
 }
